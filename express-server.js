@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import connectToDb from "./db-utils/mongoConnection.js";
 import studentDbRouter from "./routes/students.js";
@@ -12,6 +13,7 @@ connectToDb();
 mongooseConnect();
 
 server.use(express.json());
+server.use(cors());
 
 server.use("/students-db", studentDbRouter);
 
